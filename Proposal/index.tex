@@ -1,4 +1,4 @@
-\documentclass[letterpaper]{scrreprt}
+\documentclass[letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{underscore}
 \usepackage{enumitem}
@@ -11,19 +11,17 @@
 \usepackage{parskip}
 \usepackage{draftwatermark}
 \usepackage{fancyhdr}
+\renewcommand{\footrulewidth}{0.4pt}
 \usepackage{lastpage}
 \usepackage[bookmarks=true]{hyperref}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
-    pdftitle={Software Requirement Specification},    % title
-    pdfauthor={Yiannis Lazarides},                     % author
-    pdfsubject={TeX and LaTeX},                        % subject of the document
     pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
     colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=blue,       % color of internal links
     citecolor=black,       % color of links to bibliography
     filecolor=black,        % color of file links
-    urlcolor=purple,        % color of external links
+    urlcolor=blue,        % color of external links
     linktoc=page            % only page is linked
 }%
 
@@ -60,9 +58,9 @@
 \fancyhf{} % remove everything
   \lhead{\theTitle}
   \chead{}
-  \rhead{\leftmark}
+  \rhead{\subTitle}
 \lfoot{\class}
-\cfoot{}
+\cfoot{\lNames}
 \rfoot{\thepage\ of \pageref*{LastPage}}
 \fancypagestyle{plain}{%
   \fancyhf{} % clear all header and footer fields
@@ -92,5 +90,11 @@ methods like seconds poured or pour equivalent heights in a glass, but
 none actually measure the volume that has flown through the spout.} Along
 with this, humans tend to have differing tastes and likes. This means
 that the recipe for a drink could vary between customer to customer.
+To reach the desired potential for the \subTitle{} machine, it must be 
+able to automate the creation of the drink and be able to accept any recipe
+that uses the ingredients, and quantities, it contains. While there are
+multiple drink pouring machines available on the 
+internet\footnote{\url{http://www.instructables.com/id/Build-A-Mobile-Bar-BaR2D2/} \& \url{http://www.theinebriator.com/}}, 
+the \subTitle{} will allow for easier automation and use.
 
 \end{document}
