@@ -1,0 +1,86 @@
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{underscore}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{acronym}
+\usepackage[hypertexnames=false, bookmarks=true, bookmarksnumbered=true,	breaklinks=true, linkbordercolor={0 0 1}]{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+%\usepackage{draftwatermark}
+\usepackage{fancyhdr}
+\renewcommand{\footrulewidth}{0.4pt}
+\usepackage{lastpage}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=blue,        % color of external links
+    linktoc=page            % only page is linked
+}%
+
+%% Make the link look like web hyperlinks
+\makeatletter
+\Hy@AtBeginDocument{%
+  \def\@pdfborder{0 0 1}% Overrides border definition set with colorlinks=true
+  \def\@pdfborderstyle{/S/U/W 1}% Overrides border style set with colorlinks=true
+  %% Hyperlink border style will be underline of width 1pt
+}
+\makeatother
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor=blue,
+  pdfborderstyle={/S/U/W 1}
+}
+
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+\@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+
+\newcommand{\theTitle}{Dynamically Refreshing Interplexing Number of Cordials}
+\newcommand{\subTitle}{Requirements}
+\newcommand{\class}{Senior Projects}
+\newcommand{\fNames}{Brandon Arnold, Hoang Phan, Owen Ledvina, Kyle Timins}
+\newcommand{\lNames}{Arnold, Phan, Ledvina, Timins}
+
+\pagestyle{fancy}
+\fancyhf{} % remove everything
+  \lhead{\theTitle}
+  \chead{}
+  \rhead{\subTitle}
+\lfoot{\class}
+\cfoot{\lNames}
+\rfoot{\thepage\ of \pageref*{LastPage}}
+\fancypagestyle{plain}{%
+  \fancyhf{} % clear all header and footer fields
+%  \lhead{\theTitle}
+%  \chead{}
+%  \rhead{\leftmark}
+  \lfoot{\class}
+  \cfoot{\lNames}
+  \rfoot{\thepage\ of \pageref*{LastPage}}
+}
+
+\begin{document}
+\thispagestyle{plain}
+\begin{center}
+{\LARGE \textbf{\theTitle}}\\\vspace{0.5cm}
+{\Large \textbf{Proposal}}\\\vspace{0.5cm}
+by\\
+{\large \fNames}
+
+\end{center}
+
+
+\end{document}
