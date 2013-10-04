@@ -1,0 +1,152 @@
+
+\chapter{Functional Requirements}
+{
+    \renewcommand*{\theenumi}{\thesubsection.\arabic{enumi}}
+    \renewcommand*{\theenumii}{\theenumi.\arabic{enumii}}
+    \renewcommand*{\theenumiii}{\theenumii.\arabic{enumiii}}
+
+    \section{Hardware Considerations}
+ 
+ 	\subsection{Frame}
+ 		The frame must securely hold 9 liters of mixers, glass enclosures, as well as the back end control systems and drink transport track.
+ 		
+	\subsection{Power Supply}
+    A power supply capable of powering the back end control system, drink transport track, valves, and flow meters must be included.
+    
+	\subsection{Back End Control Systems}
+    A microcontroller with enough I/O pins to monitor a flow meter and valve for every mixer, as well as the servos controlling the drink transport track and a data connection to the front end system must be used.
+    
+	\subsection{Drink Transport Track}
+    The track must be able to safely, securely, and accurately move a cup to any point on a square grid.
+    
+	\subsection{Track Servos}
+    The transport track requires at least two servos, which must be strong enough to move a full pint of mixed drink reliably.
+    
+	\subsection{Flow Meters}
+    Flow meters sensitive enough to measure a minimum of 50ml over a very short time span (around a second) must be installed on each bottle.
+    
+	\subsection{Valves}
+    Each mixer must have a valve that can be quickly turned on and off via the back end control system.
+
+
+    \section{Software Considerations}
+    
+    
+        
+    \subsection{Website}
+
+    \begin{enumerate}
+        \item The ability to log in based off of authentication held in the backend database.
+    	\item The ability to log off of the account.
+    	\item Once logged in, the user will be presented with the main menu, which presents the user with the options ``Create a Custom Drink'', ``Select a Drink'', and ``Most Drank''.
+    \end{enumerate}
+    
+    \subsubsection{Create a Custom Drink}
+
+        \begin{enumerate}
+           
+           \item When ``Create a Custom Drink'' is selected, the user shall be presented with the options ``CANCEL'' and ``SAVE'', a text field to name the drink, as well as an option to add an ingredient to the recipe. This includes an ingredient list and an amount list.
+			\item The ingredient list shall hold all available ingredients.
+			\item The amount list shall hold a list of integers, ranging from 1 to 10.
+			\item Additional ingredients can be added by clicking the ``Add Ingredient'' button which creates another row allowing the user to select another ingredient, and it's amount, to the list. If, at any time, the amounts of all the ingredients combined is greater than (but not equal to) 10, an error message shall appear stating that there are too many ingredients and the last ingredient amount modified will be reverted back to it's original state.
+			\begin{enumerate}
+				\item The ``CANCEL'' button shall return the user to the main menu.
+				\item The ``SAVE'' button saves the drink name with it's ingredients and their amounts to the database.
+			\end{enumerate}
+            
+        \end{enumerate}
+        
+    \subsubsection{Select a Drink}
+       	
+       	\begin{enumerate}
+       		\item When ``Select a Drink'' is selected, the user shall be presented with a list of all drinks created under that user, as well as a list of predefined drinks. There shall also be two buttons: ``Create Drink'' and ``Delete Drink''.
+			\item The first drink in the list will be marked as ``Selected''.
+			\item When the user clicks/selects a drink, it will be marked as ``Selected''.
+			\item The ``Create Drink'' button shall popup a window with a confirmation message and the buttons ``Create'' and ``Cancel''.
+			\begin{enumerate}
+				\item If the user clicks ``Cancel'', the window will close.
+				\item If the user clicks ``Create'', the window will close and another window will appear stating the drink is being made. The current drink that is marked as ``Selected'' shall then be created by DRINC. Once the drink is created, the current window will close and a message stating that the drink has been completed will appear, then close.
+			\end{enumerate}
+			
+			\item The ``Delete Drink'' button shall popup a window with a confirmation message and the buttons ``Delete'' and ``Cancel''.
+			\begin{enumerate}
+				\item If the user clicks ``Cancel'', the window will close.
+				\item If the user clicks ``Delete'', the current drink that is marked as ``Selected'' shall then be deleted from the server. Once the drink is deleted, the current window will close and a message stating that the drink has been deleted will appear, then close.
+			\end{enumerate}
+		\end{enumerate}
+		
+	\subsubsection{Most Drank}
+		\begin{enumerate}
+			\item When ``Most Drank'' is selected, the user shall be presented with a list of drinks, similar to when ``Select a Drink'' is selected, that shall be sorted based on how often the user has created each drink, from greatest to least. If a drink has not been created (created 0 times), it shall not appear on this list. There shall also be a button labeled ``Create Drink''.
+			\item The first drink in the list will be marked as ``Selected''.
+			\item When the user clicks/selects a drink, it will be marked as ``Selected''.
+			\item The ``Create Drink'' button shall popup a window with a confirmation message and the buttons ``Create'' and ``Cancel''.
+			\begin{enumerate}
+				\item If the user clicks ``Cancel'', the window will close.
+				\item If the user clicks ``Create'', the window will close and another window will appear stating the drink is being made. The current drink that is marked as ``Selected'' shall then be created by DRINC. Once the drink is created, the current window will close and a message stating that the drink has been completed will appear, then close.
+			\end{enumerate}
+		\end{enumerate}
+		
+
+
+        
+
+
+\subsection{Android App}
+
+\begin{enumerate}
+    \item The ability to log in based off of authentication held in the backend database.
+    \item The ability to log off of the account.
+    \item Once logged in, the user will be presented with the main menu, which presents the user with the options ``Create a Custom Drink'', ``Select a Drink'', and ``Most Drank''.
+\end{enumerate}
+
+\subsubsection{Create a Custom Drink}
+\begin{enumerate}
+	\item  When ``Create a Custom Drink'' is selected, the user shall be presented with the options ``CANCEL'' and ``SAVE'', a text field to name the drink, as well as an option to add an ingredient to the recipe. This includes an ingredient list and an amount list.
+	\item The ingredient list shall hold all available ingredients.
+	\item The amount list shall hold a list of integers, ranging from 1 to 10.
+	\item Additional ingredients can be added by clicking the ``Add Ingredient'' button which creates another row allowing the user to select another ingredient, and it's amount, to the list. If, at any time, the amounts of all the ingredients combined is greater than (but not equal to) 10, an error message shall appear stating that there are too many ingredients and the last ingredient amount modified will be reverted back to it's original state.
+	\begin{enumerate}
+		\item The ``CANCEL'' button shall return the user to the main menu.
+		\item The ``SAVE'' button saves the drink name with it's ingredients and their amounts to the database.
+	\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Select a Drink}
+\begin{enumerate}
+	\item When ``Select a Drink'' is selected, the user shall be presented with a list of all drinks created under that user, as well as a list of predefined drinks. There shall also be two buttons: ``Create Drink'' and ``Delete Drink''.
+	\item The first drink in the list will be marked as ``Selected''.
+	\item When the user clicks/selects a drink, it will be marked as ``Selected''.
+	\item The ``Create Drink'' button shall popup a window with a confirmation message and the buttons ``Create'' and ``Cancel''.
+	\begin{enumerate}
+		\item If the user clicks ``Cancel'', the window will close.
+		\item If the user clicks ``Create'', the window will close and another window will appear stating the drink is being made. The current drink that is marked as ``Selected'' shall then be created by DRINC. Once the drink is created, the current window will close and a message stating that the drink has been completed will appear, then close.
+	\end{enumerate}
+	\item The ``Delete Drink'' button shall popup a window with a confirmation message and the buttons ``Delete'' and ``Cancel''.
+	\begin{enumerate}
+		\item If the user clicks ``Cancel'', the window will close.
+		\item If the user clicks ``Delete'', the current drink that is marked as ``Selected'' shall then be deleted from the server. Once the drink is deleted, the current window will close and a message stating that the drink has been deleted will appear, then close.
+	\end{enumerate}
+\end{enumerate}
+
+\subsubsection{Most Drank}
+\begin{enumerate}
+	\item When ``Most Drank'' is selected, the user shall be presented with a list of drinks, similar to when ``Select a Drink'' is selected, that shall be sorted based on how often the user has created each drink, from greatest to least. If a drink has not been created (created 0 times), it shall not appear on this list. There shall also be a button labeled ``Create Drink''.
+	\item The first drink in the list will be marked as ``Selected''.
+	\item When the user clicks/selects a drink, it will be marked as ``Selected''.
+	\item The ``Create Drink'' button shall popup a window with a confirmation message and the buttons ``Create'' and ``Cancel''.
+	\begin{enumerate}
+		\item If the user clicks ``Cancel'', the window will close.	
+		\item If the user clicks ``Create'', the window will close and another window will appear stating the drink is being made. The current drink that is marked as ``Selected'' shall then be created by DRINC. Once the drink is created, the current window will close and a message stating that the drink has been completed will appear, then close.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Backend Server}
+
+\begin{enumerate}
+	\item Hold drink information and send to DRINC
+    \item Ability to SSH into machine for maintenance or configuration
+    \item The server information must be backed up every Wednesday, at 9:00AM.
+    \item Keep track of the drinks consumed by the user during the current period of time.
+\end{enumerate}
+}
