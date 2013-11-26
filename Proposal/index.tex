@@ -1,76 +1,6 @@
 \documentclass[letterpaper]{article}
-\usepackage{graphicx}
-\usepackage{underscore}
-\usepackage{enumitem}
-\usepackage{float}
-\usepackage{fancyvrb}
-\usepackage{color}
-\usepackage{acronym}
-\usepackage[hypertexnames=false, bookmarks=true, bookmarksnumbered=true,	breaklinks=true, linkbordercolor={0 0 1}]{hyperref}
-\usepackage{xcolor}
-\usepackage{parskip}
-%\usepackage{draftwatermark}
-\usepackage{fancyhdr}
-\renewcommand{\footrulewidth}{0.4pt}
-\usepackage{lastpage}
-\usepackage[bookmarks=true]{hyperref}
-\hypersetup{
-    bookmarks=false,    % show bookmarks bar?
-    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
-    colorlinks=true,       % false: boxed links; true: colored links
-    linkcolor=blue,       % color of internal links
-    citecolor=black,       % color of links to bibliography
-    filecolor=black,        % color of file links
-    urlcolor=blue,        % color of external links
-    linktoc=page            % only page is linked
-}%
 
-%% Make the link look like web hyperlinks
-\makeatletter
-\Hy@AtBeginDocument{%
-  \def\@pdfborder{0 0 1}% Overrides border definition set with colorlinks=true
-  \def\@pdfborderstyle{/S/U/W 1}% Overrides border style set with colorlinks=true
-  %% Hyperlink border style will be underline of width 1pt
-}
-\makeatother
-\hypersetup{%
-  colorlinks=true,
-  linkcolor=blue,
-  linkbordercolor=blue,
-  pdfborderstyle={/S/U/W 1}
-}
-
-%% Define a new 'leo' style for the package that will use a smaller font.
-\makeatletter
-\def\url@leostyle{%
-\@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
-\makeatother
-%% Now actually use the newly defined style.
-\urlstyle{leo}
-
-\newcommand{\theTitle}{Dynamically Refreshing Interplexing Number of Cordials}
-\newcommand{\subTitle}{DRINC}
-\newcommand{\class}{Senior Projects}
-\newcommand{\fNames}{Brandon Arnold, Hoang Phan, Owen Ledvina, Kyle Timins}
-\newcommand{\lNames}{Arnold, Phan, Ledvina, Timins}
-
-\pagestyle{fancy}
-\fancyhf{} % remove everything
-  \lhead{\theTitle}
-  \chead{}
-  \rhead{\subTitle}
-\lfoot{\class}
-\cfoot{\lNames}
-\rfoot{\thepage\ of \pageref*{LastPage}}
-\fancypagestyle{plain}{%
-  \fancyhf{} % clear all header and footer fields
-%  \lhead{\theTitle}
-%  \chead{}
-%  \rhead{\leftmark}
-  \lfoot{\class}
-  \cfoot{\lNames}
-  \rfoot{\thepage\ of \pageref*{LastPage}}
-}
+\input{preamble}
 
 \begin{document}
 \thispagestyle{plain}
@@ -82,54 +12,11 @@ by\\
 
 \end{center}
 
-\section{Broad Scale Description}
+\input{description}
 
-The \theTitle{} (\subTitle{}) is a machine that can create drinks from
-multiple bottles or sources. Such a machine has the potential to produce
-drinks with higher accuracy of mixture proportions.\footnote{Humans use
-methods like seconds poured or pour equivalent heights in a glass, but 
-none actually measure the volume that has flown through the spout.} Along
-with this, humans tend to have differing tastes and likes. This means
-that the recipe for a drink could vary between customer to customer.
-To reach the desired potential for the \subTitle{} machine, it must be 
-able to automate the creation of the drink and be able to accept any recipe
-that uses the ingredients, and quantities, it contains. While there are
-multiple drink pouring machines available on the internet ~\cite{BaR2D2}
-~\cite{Inebriator}, the \subTitle{} will allow for easier automation and
-use.
+\input{detail}
 
-
-\section{More Detail} %% Someone should change this section title
-
-The \subTitle{} will have an array of multiple bottles. This allows for
-a massive variety of mixed drinks. To be able to handle this, the machine
-will handle this task by having a database containing a list of drinks. 
-To be able to measure the amount of each liquid in the mixtures, the 
-machine will measure the flow of the liquid. This will also allow the 
-\subTitle{} to keep track of how much of each liquid is left, at any given
-time.
-
-The \subTitle{} will have two front ends: one via a web site and one via an
-Android tablet. The web site will allow the owner to administer the machine.
-The Android tablet will be attached to the machine. This will be the main
-front-end used by the user to select a drink to pour.
-
-\section{Deliverables}
-
-The following are deliverables for this project:
-\begin{itemize}
-    \item Grid array holding all bottles with attached flow meters
-    \item Micro computer controlling the movement of cup on grid
-    \item Micro computer controlling the flow of the drinks
-    \item Web based front end for drink creation per user and 
-          administration
-    \item Android tablet front end on robot for use front end    \end{itemize}
-
-Some possible deliverables for this project:
-\begin{itemize}
-    \item NFC relating to drinkers profile
-    \item LED light show while pouring drinks
-\end{itemize}    
+\input{deliverables}
 
 \bibliography{ref}
 \bibliographystyle{plain}
