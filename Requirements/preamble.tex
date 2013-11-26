@@ -1,0 +1,81 @@
+\usepackage{graphicx}
+\usepackage{underscore}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage{acronym}
+\usepackage[hypertexnames=false, bookmarks=true, bookmarksnumbered=true,	breaklinks=true, linkbordercolor={0 0 0}]{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+%\usepackage{draftwatermark}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Yiannis Lazarides},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+%\SetWatermarkText{Calculator}
+
+%% Make the link look like web hyperlinks
+\makeatletter
+\Hy@AtBeginDocument{%
+  \def\@pdfborder{0 0 1}% Overrides border definition set with colorlinks=true
+  \def\@pdfborderstyle{/S/U/W 1}% Overrides border style set with colorlinks=true
+  %% Hyperlink border style will be underline of width 1pt
+}
+\makeatother
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor=blue,
+  pdfborderstyle={/S/U/W 1}
+}
+
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+\@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+
+%% Chapter titles
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
+\renewcommand{\chaptername}{}
+\newcommand{\subTitle}{Dynamically Refreshing Interplexing Number of Cordials}
+\newcommand{\theTitle}{DRINC}
+\newcommand{\class}{Senior Project}
+
+\pagestyle{fancy}
+\fancyhf{} % remove everything
+  \lhead{\theTitle}
+  \chead{}
+  \rhead{\leftmark}
+\lfoot{\class}
+\cfoot{}
+\rfoot{\thepage\ of \pageref*{LastPage}}
+\fancypagestyle{plain}{%
+  \fancyhf{} % clear all header and footer fields
+  \lhead{\theTitle}
+  \chead{}
+  \rhead{\leftmark}
+  \lfoot{\class}
+  \cfoot{}
+  \rfoot{\thepage\ of \pageref*{LastPage}}
+}

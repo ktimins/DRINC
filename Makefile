@@ -1,5 +1,8 @@
-all: proposal
+all: proposal requirements
 
+#############
+# Proposal
+#############
 proposal: 
 	$(MAKE) -C Proposal all
 
@@ -9,4 +12,20 @@ proposal-build:
 proposal-clean: 
 	$(MAKE) -C Proposal clean
 
-clean: proposal-clean
+#############
+# Requirements
+#############
+
+requirements:
+	$(MAKE) -C Requirements all
+
+requirements-build:
+	$(MAKE) -C Requirements build
+
+requirements-clean:
+	$(MAKE) -C Requirements clean
+
+#############
+# Clean
+#############
+clean: proposal-clean requirements-clean
