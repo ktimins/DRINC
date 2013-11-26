@@ -5,3 +5,4 @@ build: deliverables.tex description.tex detail.tex index.tex preamble.tex ref.bi
 
 clean: 
 	latexmk -c
+	rm -f *.bbl *.dvi *.bak
