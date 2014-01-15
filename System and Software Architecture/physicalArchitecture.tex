@@ -1,0 +1,98 @@
+{
+    \renewcommand*{\theenumi}{\thesubsection.\arabic{enumi}}
+    \renewcommand*{\theenumii}{\theenumi.\arabic{enumii}}
+    \renewcommand*{\theenumiii}{\theenumii.\arabic{enumiii}}
+
+    \section{Physical Architecture}
+
+    \subsection{Back End Requirements}
+            
+    \subsubsection{The Raspberry Pi}
+        \begin{description}
+	        \item[Processor] Broadcom 700 MHz
+	        \item[RAM]       256MB
+	        \item[Graphics]  VideoCore IV
+	        \item[OS]        Debian Linux
+        \end{description}
+
+    \subsection{Front End Requirements}
+
+    \subsubsection{The Nexus 7 Android}
+        \begin{description}
+	        \item[Processor] ARM Cortex-A9 Nvideia Tegra 3 T30L 1.2 GHz quad-core
+	        \item[RAM]       1 GB
+	        \item[Graphics]  7in Touch screen
+	        \item[OS]        Android Jelly Bean
+        \end{description}
+    
+    \subsection{Hardware Design Overview}
+
+    Touch screen talks to backend server on the raspberry pi. This formats the 
+    proper protocol commands that are sent to the arduino. The arduino then 
+    processes these commands and sends the proper data instructions to the 
+    proper pins that will control the solenoids.
+
+    \subsubsection{Front End}
+        \begin{itemize}
+            \item The front end is an Android device which will run the front 
+            end software described later.
+            \item The front end will connect to the back end with a custom 
+            protocol that will communicate with the front end over a USB cable.
+        \end{itemize}
+
+    \subsubsection{Back End}
+        \begin{itemize}
+            \item The backend is a Raspberry PI running the backend software 
+            and an Arduino device that will communicate with the valves/flow
+            meters directly.
+        \end{itemize}
+
+
+    
+    \subsubsection{Frame}
+
+	    The frame of the machine will accommodate all other components.  It 
+        will suspend 9 bottles 750mL in volume above a track consisting of a 
+        cup holder moving horizontally along two rails assisted by a pair of 
+        servos.  The frame will also house an Arduino Mega, a Raspberry Pi, 
+        and a standard ATX power supply, as well as a mounting point for the 
+        frontend device.
+
+    \subsubsection{Electronics}
+
+        The backend will communicate with an Arduino Mega microcontroller.  
+        The microcontroller will in turn control a valve attached to each 
+        available mixer.  Additionally, the microcontroller will control a 
+        pair of servos to move the cup holder to any of the available mixers.
+
+	    \paragraph{Arduino Mega}
+        \begin{itemize}
+		    \item 16MHz core clock
+		    \item-124KB available flash
+		    \item-49 digital I/O pins
+		    \item-15 digital I/O pins capable of PWM
+		    \item-16 analog I/O pins
+        \end{itemize}
+
+	    \paragraph{Valves}
+        \begin{itemize}
+		    \item Aquatech AQT15SP Solenoid Valve
+		    \item 12V operating voltage
+		    \item $\frac{3}{4}$in diameter
+        \end{itemize}
+
+	    \paragraph{Servos}
+        \begin{itemize}
+		    \item 43R Robot Rotation Servo
+		    \item 5V operating voltage
+		    \item Direction and speed controlled
+		    \item 60 RPM
+        \end{itemize}
+
+        \paragraph{Power Supply} 
+	    A standard 400W ATX power supply will adequately power all 
+        electronic components. The backend can bring the PSU out of standby 
+        and shut it back down when the machine is not in use.
+
+}
+                
