@@ -20,7 +20,7 @@
 
 \usepackage{subfigure}
 \usepackage{multicol}
-%\usepackage{amsmath}
+\usepackage{amsmath}
 \usepackage{epsfig}
 \usepackage{graphicx}
 \usepackage[all,knot]{xy}
@@ -29,6 +29,8 @@
 \usepackage{multimedia}
 \usepackage{hyperref}
 \usepackage{setspace}
+
+\usepackage{lmodern}% http://ctan.org/pkg/lm
 
 % define your own colours:
 \definecolor{innotek}{RGB}{1,54,160}
@@ -58,34 +60,45 @@
 \author[]{Brandon Arnold\\Hoang Phan\\Owen Ledvina\\Kyle Timins}
 \date{December $6^{th}$, 2013}
 
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection,hideallsubsections]
+  \end{frame}
+}
+
 \begin{document}
 
 \frame{
     \titlepage
 }
 
-\section{Introduction}
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents[hideallsubsections]
+\end{frame}
 
-\section{Function Requirements}
+\section*{Introduction}
+\input{intro}
 
-\subsection{Hardware}
-
-\subsection{Software}
+\section{Functional Requirements}
+\input{funcReq}
 
 \section{Non-Function Requirements}
+\input{nonFuncReq}
 
 \section{Interfaces}
-
-\subsection{Website}
-
-\subsection{Android Device}
+\input{interfaces}
 
 \section{Server}
-
-\subsection{Hardware}
-
-\subsection{Software}
+\input{server}
 
 \section{What We've Done}
+\input{done}
 
 \section{Conclusion}
+\input{conclusion}
+
+\end{document}
