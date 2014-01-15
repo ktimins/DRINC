@@ -1,0 +1,66 @@
+\chapter{Hardware Design Overview}
+{
+    \renewcommand*{\theenumi}{\thesubsection.\arabic{enumi}}
+    \renewcommand*{\theenumii}{\theenumi.\arabic{enumii}}
+    \renewcommand*{\theenumiii}{\theenumii.\arabic{enumiii}}
+
+
+    \section{Description}
+        The DRINC project's hardware consists of all physical devices used 
+        to transport, pour, and support drinks.
+        \begin{itemize}
+            \item The frame (made up of the following subcomponents):
+            \begin{itemize}
+                \item The track
+                \item The valves
+                \item The support structure
+            \end{itemize}
+            \item The PSU
+            \item The Raspberry Pi server
+            \item The Arduino microcontroller
+            \item The Nexus 7 frontend
+        \end{itemize}
+
+    \section{Support Structure}
+        DRINC will be held in a frame constructed from high quality ABS 
+        plastic capable of supporting a minimum of 9 liters of liquid in 
+        bottles.  It will also have space to house the drink transportation 
+        track, the backend server, the Arduino, and the PSU.
+
+    \section{Track}
+        The track is made up of a pair of toothed rails running the length 
+        of the frame attached to rotation controlled servos.  The track will 
+        hold a cup of varying size, as well as detect whether or not a cup 
+        is in place.
+
+    \section{Valves}
+        Each mixer be equipped with a custom built valve consisting of a 
+        shaped tube connected to a position controlled servo.  The Arduino 
+        microcode will control each valve.
+
+
+    \section{PSU}
+        DRINC will be powered by a 300W ATX PSU.  This will be enough to 
+        power all valves, the track, the backend server, and the 
+        microcontroller.
+
+    \section{Arduino} 
+        An Arduino Mega256 microcontroller will be used to control all track 
+        and valve functions required by DRINC.  The microcontroller will 
+        draw power from the DRINC PSU.  The microcode running on the is 
+        structured as follows:
+        \begin{itemize}
+            \item The microcontroller turns on and initializes itself
+            \item Wait for a serial data packet from the backend
+            \item Upon receiving all serial data, check to make sure it is a valid drink recipe
+            \item If drink is valid, move track to first valve in recipe
+            \item Calculate time valve must be open based on recipe
+            \item Open valve, then close it after calculated time
+            \item Repeat process for remaining valves in recipe
+            \item Move track to finished drink position
+            \item Wait until cup is removed and replaced
+            \item Send backend a ready signal
+            \item Return to wait for data state
+        \end{itemize}
+
+}

@@ -1,0 +1,143 @@
+\chapter{Use Cases Model Survey}
+{
+    \renewcommand*{\theenumi}{\thesubsection.\arabic{enumi}}
+    \renewcommand*{\theenumii}{\theenumi.\arabic{enumii}}
+    \renewcommand*{\theenumiii}{\theenumii.\arabic{enumiii}}
+
+    \section{Logging In}
+        In this senario the user logs into the system.
+        \subsection{Actors}
+            \begin{itemize}
+                \item User
+                \item System
+            \end{itemize}
+        \subsection{Assumptions}
+            \begin{itemize}
+                \item User already has valid login information.
+                \item User is at the login page.
+            \end{itemize}
+        \subsection{Procedure}
+            \begin{itemize}
+                \item System prompts user for login information
+                \item User enters correct login information
+                \item User clicks ``Login''
+                \item The system logs the user in
+            \end{itemize}
+        \subsection{Expected Outcome}
+            \begin{itemize}
+                \item The user is now logged in.
+            \end{itemize}
+
+    \section{Loggin Out}
+        In this senario the user logs out of the system.
+        \subsection{Actors}
+            \begin{itemize}
+                \item User
+                \item System
+            \end{itemize}
+        \subsection{Assumptions}
+            \begin{itemize}
+                \item User is already logged in
+            \end{itemize}
+        \subsection{Procedure}
+            \begin{itemize}
+                \item User clicks the ``Logout'' button
+                \item The system logs the user out
+                \item The system prompts the user for the login information
+            \end{itemize}
+        \subsection{Expected Outcome}
+            \begin{itemize}
+                \item The user is now logged out, redirected to the login page
+                and is prompted to login.
+            \end{itemize}
+
+    \section{Create a Custom Drink}
+        In this scenario the user creates a drink from scratch, selecting 
+        what ingredients he wishes to use, as well as their amounts. The 
+        user then saves this recipe for future use.
+        \subsection{Actors}
+            \begin{itemize}
+                \item User
+                \item System
+            \end{itemize}
+        \subsection{Assumptions}
+            \begin{itemize}
+                \item User is already logged in
+                \item User is already at the create a draink page
+            \end{itemize}
+        \subsection{Procedure}
+            \begin{itemize}
+                \item System presents user with a list of available options to 
+                make a drink
+                \item User selects which drinks to use
+                \item User inputs how much of each ingredient to use
+                \item User chooses a name for the new drink
+                \item User clicks ``Create Drink''
+                \item The system stores the new drink in the database
+            \end{itemize}
+        \subsection{Expected Outcome}
+            \begin{itemize}
+                \item The drink is correctly placed into the database for 
+                future retrieval.
+            \end{itemize}
+    
+    \section{Create a Drink}
+        In this scenario the user selects which premade drink he/she wants 
+        DRINC to produce.
+        \subsection{Actors}
+            \begin{itemize}
+                \item User
+                \item System
+            \end{itemize}
+        \subsection{Assumptions}
+            \begin{itemize}
+                \item User is logged in.
+                \item There are valid drinks in the database.
+                \item There is a cup in the DRINC machine.
+            \end{itemize}
+        \subsection{Procedure}
+            \begin{itemize}
+                \item System prompts user for drink selection
+                \item User selects drink
+                \item User clicks ``Create''
+                \item The system makes the drink and increments the number of
+                drinks consumed
+                \item User consumes drink
+            \end{itemize}
+        \subsection{Expected Outcome}
+            \begin{itemize}
+                \item The drink is created and consumed. User is positively 
+                affected by drink.
+            \end{itemize}
+
+    \section{Delete a Drink}
+        In this scenario the user deletes a drink from the database so that it
+        will be removed from the list of valid drinks.
+        \subsection{Actors}
+            \begin{itemize}
+                \item User
+                \item System
+            \end{itemize}
+        \subsection{Assumptions}
+            \begin{itemize}
+                \item User is logged in.
+                \item There is already at least one drink in the database.
+            \end{itemize}
+        \subsection{Procedure}
+            \begin{itemize}
+                \item System displays a list of saved drinks
+                \item User selects a drink
+                \item User clicks ``Delete Drink''
+                \item The system pops up with a confirmation ``Are you sure you
+                want to delete [Drink x]?''
+                \item The user clicks ``Yes'' or ``No''
+                \item If the user clicks ``Yes'' the system drops the drink 
+                from the database
+            \end{itemize}
+        \subsection{Expected Outcome}
+            \begin{itemize}
+                \item The drink is no longer listed under saved drinks.
+            \end{itemize}
+
+            
+}
