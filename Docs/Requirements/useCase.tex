@@ -1,0 +1,126 @@
+\chapter{Use Cases}
+{
+    \renewcommand{\theenumi}{\thesubsection.\arabic{enumi}}
+    \renewcommand{\theenumii}{\theenumi.\arabic{enumii}}
+    \renewcommand{\theenumiii}{\theenumii.\arabic{enumiii}}
+
+\section{Logging In}
+
+\subsection{Actors}
+	\begin{enumerate}
+		\item User
+		\item System
+	\end{enumerate}
+\subsection{Assumptions}
+	\begin{enumerate}
+		\item User already has valid login information.
+		\item User is at the login page.
+	\end{enumerate}
+\subsection{Procedure}
+	\begin{enumerate}
+    	\item System prompts user for login information
+    	\item User enters correct login information
+    	\item User clicks ``Login''
+    	\item The system logs the user in
+    \end{enumerate}
+\subsection{Expected Outcome}
+    \begin{enumerate}
+    	\item The user is now logged in.
+    \end{enumerate}
+
+\section{Logging Out}
+\subsection{Actors}
+	\begin{enumerate}
+    	\item User
+		\item System
+    \end{enumerate}
+\subsection{Assumptions}
+	\begin{enumerate}
+    	\item User is already logged in
+    \end{enumerate}
+\subsection{Procedure}
+   	\begin{enumerate}
+    	\item User clicks the ``Logout'' button
+    	\item The system logs the user out
+    	\item The system prompts the user for login information
+    \end{enumerate}
+\subsection{Expected Outcome}
+	\begin{enumerate}
+    	\item The user is now logged out and is prompted to login.
+    \end{enumerate}
+
+\section{Create a Custom Drink}
+\subsection{Actors}
+	\begin{enumerate}
+    	\item User
+	    \item System
+    \end{enumerate}
+\subsection{Assumptions}
+	\begin{enumerate}
+    	\item User is already logged in
+    	\item User is already at the create a drink page
+    \end{enumerate}
+\subsection{Procedure}
+	\begin{enumerate}
+    	\item System presents user with a list of available options to make a drink
+    	\item User selects which drinks to use
+    	\item User inputs how much of each drink to use
+    	\item User chooses a name for the new drink
+    	\item User clicks ``Create Drink''
+    	\item The system stores the new drink in the database.
+    \end{enumerate}
+\subsection{Expected Outcome }
+	\begin{enumerate}
+    	\item The drink is correctly placed into the database for future retrieval
+    \end{enumerate}
+    
+\section{Select a Drink}
+\subsection{Actors}
+	\begin{enumerate}
+    	\item User
+    	\item System
+    \end{enumerate}
+\subsection{Assumptions}
+	\begin{enumerate}
+    	\item User is logged in
+    	\item There are valid drinks in the database
+    \end{enumerate}
+\subsection{Procedure}
+	\begin{enumerate}
+    	\item System prompts user for drink selection
+    	\item User selects drink
+    	\item User clicks ``Select''
+    	\item The system makes the drink and increments the number of drinks consumed
+    	\item User consumes drink
+    \end{enumerate}
+\subsection{Expected Outcome}
+	\begin{enumerate}
+    	\item The drink is created and consumed. User is positively affected by drink. 
+    \end{enumerate}   
+    
+\section{Delete a Drink}
+\subsection{Actors}
+	\begin{enumerate}
+    	\item User
+    	\item System
+    \end{enumerate}
+\subsection{Assumptions}
+	\begin{enumerate}
+    	\item User is logged in
+		\item There is already at least one drink in the database
+	\end{enumerate}
+\subsection{Procedure}
+	\begin{enumerate}
+    	\item System displays a list of saved drinks
+    	\item User clicks ``delete this drink''
+    	\item The system pops up with a confirmation ``Are you sure you want to delete drink X?''
+    	\item The user clicks ``yes'' or ``no''
+    	\item If the user clicks ``yes'' the system drops the drink from the database
+    \end{enumerate}
+\subsection{Expected Outcome}
+	\begin{enumerate}
+    	\item The drink is no longer listed under saved drinks
+    \end{enumerate}
+
+}
+    
