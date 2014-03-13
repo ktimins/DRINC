@@ -1,0 +1,46 @@
+\documentclass[letterpaper]{scrreprt}
+
+\input{../preambleGlobal}
+\input{preambleLocal}
+
+\begin{document}
+
+
+%% Title Page
+\input{title}
+
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+%% Revision history 
+\input{revision}
+
+%% Table of contents
+\tableofcontents
+\newpage
+
+%% Table of Figures
+\listoffigures
+\textbf{\addcontentsline{toc}{chapter}{List of Figures}}
+\newpage
+
+
+%% Introduction and some basic things
+\input{intro}
+
+%% Use Cases Model Survey
+\input{useCase}
+
+%% Hardware Design Overview
+\input{hardwareDesign}
+
+%% Software Design Overview
+\input{softwareDesign}
+
+%% Server Configuration
+\input{serverConfig}
+
+%% Non-Function Requirements
+\input{nonFuncReqs}
+
+\end{document}

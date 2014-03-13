@@ -1,0 +1,56 @@
+\chapter{Summary of Requirements}
+{
+    \renewcommand*{\theenumi}{\thesubsection.\arabic{enumi}}
+    \renewcommand*{\theenumii}{\theenumi.\arabic{enumii}}
+    \renewcommand*{\theenumiii}{\theenumii.\arabic{enumiii}}
+
+    \section{Hardware}
+    
+    \begin{itemize}
+		\item Frame must securely hold 9 liters of mixers, glass enclosures 
+        as well as the back end control systems and drink transport track.
+		\item Power Supply must be capable of powering the back end control 
+        system, drink transport track, valves, and flow meters must be included.
+		\item A microcontroller with enough I/O pins to monitor a flow meter 
+        and valve for every mixer, as well as the servos controlling the 
+        drink transport track and a data connection to the front end system 
+        must be used to control the back end control systems
+		\item The drink transport track must be able to safely, securely, 
+        and accurately move a cup to any point on a square grid.
+		\item The transport track requires at least two servos, which must 
+        be strong enough to move a full pint of mixed drink reliably.
+		\item Each mixer must have a valve that can be quickly turned on and 
+        off via the back end control system.
+    \end{itemize}
+
+    \section{Software}
+
+    \begin{itemize}
+		\item The website must be able to log in a user based off of 
+        authentication held in the backend database.
+		\item The website must be able to log a user off of the account.
+		\item The website must present the user with the main menu upon 
+        logging in
+		\item The website must have the following options:
+        \begin{itemize}
+			\item Create a Custom Drink
+			\item Select a Drink
+			\item Most Drank
+        \end{itemize}
+		\item The Android app must be able to log in a user based off of 
+        authentication held in the backend database.
+		\item The Android app must be able to log a user off of the account.
+		\item The Android app must present the user with the main menu upon 
+        logging in
+		\item The Android app must have the following options:
+        \begin{itemize}
+			\item Create a Custom Drink
+			\item Select a Drink
+			\item Most Drank
+        \end{itemize}
+    \end{itemize}
+
+    The goal of this project is to create a machine that will accurately mix 
+    drinks selected by the user from a preset list of mixers.  
+
+}
