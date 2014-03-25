@@ -12,41 +12,41 @@ if(isset($_COOKIE['ID_my_site']))
 
 
 
-//if there is, it logs you in and directs you to the members page
+    //if there is, it logs you in and directs you to the members page
 
 {
 
-	$username= addslashes($_COOKIE['ID_my_site']);
+    $username= addslashes($_COOKIE['ID_my_site']);
 
-	$pass=addslashes($_COOKIE['Key_my_site']);
+    $pass=addslashes($_COOKIE['Key_my_site']);
 
-	$check=pg_exec("SELECT * FROM logins WHERE username='$username'")or
+    $check=pg_exec("SELECT * FROM logins WHERE username='$username'")or
 
-	die(pg_last_error());
+        die(pg_last_error());
 
-	while($info=pg_fetch_array($check))
+    while($info=pg_fetch_array($check))
 
-		{
+    {
 
-		if($pass!=$info['password'])
+        if($pass!=$info['password'])
 
-		{
+        {
 
-		}
+        }
 
-	else
+        else
 
-		{
+        {
 
-		//redirect to members.php if you are already logged in
+            //redirect to members.php if you are already logged in
 
-		header("Location: members.php");
+            header("Location: members.php");
 
-		}
+        }
 
-		}
+    }
 
-		}
+}
 
 
 
@@ -56,109 +56,109 @@ if(isset($_POST['submit'])){//if form has been submitted
 
 
 
-//makes sure they filled it in
+    //makes sure they filled it in
 
-if(!$_POST['username']|!$_POST['password'])
+    if(!$_POST['username']|!$_POST['password'])
 
-	{
+    {
 
-		die('You did not fill in a required field.');
+        die('You did not fill in a required field.');
 
-	}
-
-	
-
-//checks it against the database
-
-if(!get_magic_quotes_gpc())
-
-	{
-
-		$_POST['username']=addslashes($_POST['username']);
-
-	}
-
-	
-
-$check=pg_exec("SELECT * FROM logins WHERE username = '".$_POST['username']."'")or die(pg_last_error());
+    }
 
 
 
+    //checks it against the database
 
+    if(!get_magic_quotes_gpc())
 
-//gives error if user doesn't exist
+    {
 
-$check2=pg_numrows($check);
+        $_POST['username']=addslashes($_POST['username']);
 
-if($check2==0)
-
-	{
-
-		die('That user does not exist in our database.<a href=register.php>Click here to register.</a>');
-
-	}
-
-	
-
-	
-
-while($info=pg_fetch_array($check))
-
-	{
-
-		$_POST['password']=stripslashes($_POST['password']);
-
-		$info['password']=stripslashes($info['password']);
-
-		$_POST['password'] = hash('sha512', $_POST['password'] . "SALTSALTSALT");
+    }
 
 
 
-//gives error if the password is wrong
-
-if($_POST['password']!=$info['password'])
-
-	{
-
-		print "Sorry, the username and password to not match.";
-
-	}
+    $check=pg_exec("SELECT * FROM logins WHERE username = '".$_POST['username']."'")or die(pg_last_error());
 
 
+
+
+
+    //gives error if user doesn't exist
+
+    $check2=pg_numrows($check);
+
+    if($check2==0)
+
+    {
+
+        die('That user does not exist in our database.<a href=register.php>Click here to register.</a>');
+
+    }
+
+
+
+
+
+    while($info=pg_fetch_array($check))
+
+    {
+
+        $_POST['password']=stripslashes($_POST['password']);
+
+        $info['password']=stripslashes($info['password']);
+
+        $_POST['password'] = hash('sha512', $_POST['password'] . "SALTSALTSALT");
+
+
+
+        //gives error if the password is wrong
+
+        if($_POST['password']!=$info['password'])
+
+        {
+
+            print "Sorry, the username and password to not match.";
+
+        }
+
+
+
+        else
+
+        {
+
+            //if login is ok then we add a cookie
+
+            $_POST['username']=stripslashes($_POST['username']);
+
+            $hour=time()+3600;
+
+            setcookie(ID_my_site, $_POST['username'],$hour);
+
+            setcookie(Key_my_site,$_POST['password'],$hour);
+
+
+
+            //then redirect them to members area
+
+            header("location: members.php");
+
+        }
+
+    }
+
+}
 
 else
 
 {
 
-//if login is ok then we add a cookie
-
-$_POST['username']=stripslashes($_POST['username']);
-
-$hour=time()+3600;
-
-setcookie(ID_my_site, $_POST['username'],$hour);
-
-setcookie(Key_my_site,$_POST['password'],$hour);
 
 
-
-//then redirect them to members area
-
-header("location: members.php");
-
-}
-
-}
-
-}
-
-else
-
-{
-
-
-
-//if they are not logged in
+    //if they are not logged in
 
 ?>
 
