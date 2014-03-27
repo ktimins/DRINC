@@ -11,7 +11,7 @@ DRINC
 <link href="drinc.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id = "logoarea"><img src="pics/logo.jpg" alt="logogoeshere"></img></div>
+<div id = "logoarea"><img src="Innotek.jpg" alt="logogoeshere"></img></div>
 
 
 <!--Navigation Area-->

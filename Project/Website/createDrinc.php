@@ -16,7 +16,7 @@ if(isset($_COOKIE['ID_my_site'])) {
     echo "<tr><th>NO MORE THAN 16 PARTS PER DRINC PLEASE.</th></tr>";
     for ($i = 1; $i < 10; $i++) {
         echo "<tr>";
-        echo "<td>".pg_exec("SELECT ingredient FROM Ingredients WHERE PID=".$i.";")."</td>";
+        echo "<td>".pg_exec("SELECT ingredient FROM ingredients WHERE PID = ".$i.";")."</td>";
         echo "<td><input type=\"number\" min=\"0\" max=\"16\" name=\"".$i."\" value=\"0\"></td>";
         echo "</tr>";
     }
