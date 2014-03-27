@@ -18,7 +18,9 @@ if(isset($_COOKIE['ID_my_site'])) {
 
     // Get how many drincs are in the database
     $rowCount = pg_exec("SELECT COUNT(*) FROM drincs;");
+    $rowDivide = 0;
     $rowDivide = $rowCount / 5;
+    $rowMod = 0;
     $rowMod = $rowcount % 5;
 
     $tableRows = $rowDivide;
@@ -30,7 +32,9 @@ if(isset($_COOKIE['ID_my_site'])) {
     for ($i = 0; $i < $TableRows; $i++) {
         echo "<tr>";
         for ($n = 0; $n < 5; $n++) {
-            echo "<td><a href=\"makeDrinc.php/?id=" . $i+$n ."\">".pg_exec("SELECT name FROM drincs WHERE PID=".$i+$n.";")."</td>";
+            if ($i*$n <= $rowCount) {
+                echo "<td><a href=\"makeDrinc.php/?id=" . $i*$n ."\">".pg_exec("SELECT name FROM drincs WHERE PID=".$i*$n.";")."</td>";
+            }
         }
     }
     echo "</table>";
