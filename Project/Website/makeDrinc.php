@@ -1,16 +1,29 @@
-<?php
-include("header.php");
-$PID = $_GET["PID"];
-
-$name = pg_exec("SELECT name FROM drincs WHERE PID=".$PID.";");
-$ingre = pg_exec("SELECT ingredients FROM drincs WHERE PID =".$PID.";");
+<?php include("header.php");
+$PID = $_GET["id"];
+$result = pg_query("SELECT name FROM drincs WHERE testid=".$PID.";");
+$name = pg_fetch_array($result)[0];
+$result = pg_query("SELECT ingredients FROM drincs WHERE testid =".$PID.";");
+$ingre = pg_fetch_array($result)[0];
 
 echo "<h2>Making your ".$name.".</h2>";
 
-$fp =fopen("com7", "w");
-fwrite($fp, $ingre."\n");
-fclose($fp);
+// Library PHPSerial method
+//include "PHPSerial.php";
+//$serial = new phpSerial;
+//$serial->deviceSet("/dev/ttyACM0");
+//$serial->confBaudRate(9600);
+//$serial->confParity("none");
+//$serial->confCharacterLength(8);
+//$serial->confStopBits(1);
+//$serial->deviceOpen()
+//$serial->sendMessage($ingre."\n");
+//$serial->deviceClose();
 
-header("location: members.php");
+// Strait fopen method
+//$fp =fopen("com3", "w");
+//fwrite($fp, $ingre."\n");
+//fclose($fp);
+
+//header("location: members.php");
 include("footer.php");
 ?>

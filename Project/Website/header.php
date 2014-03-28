@@ -11,7 +11,7 @@ DRINC
 <link href="drinc.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id = "logoarea"><img src="Innotek.jpg" alt="logogoeshere"></img></div>
+<div id = "logoarea"><img src="pics/logo.png" width="332" height="122" alt="logogoeshere"></img></div>
 
 
 <!--Navigation Area-->
@@ -22,18 +22,24 @@ DRINC
 //checks if there is an authentic cookie for the website; determins what navigation links to show dependant on login or not
 if(isset($_COOKIE['ID_my_site']))
 	{
-	$loginerror=1;
+	$loginerror=1;//used for if cookie is invalid, I think. Forgot to comment when I wrote this
 	
-		$result = pg_exec("SELECT username, password FROM logins WHERE username = '" . addslashes($_COOKIE['ID_my_site']) . "' AND password = '" . addslashes($_COOKIE['Key_my_site']) . "';");
+		$result = pg_query("SELECT username, password FROM logins WHERE username = '" . addslashes($_COOKIE['ID_my_site']) . "' AND password = '" . addslashes($_COOKIE['Key_my_site']) . "';");
 		while($row = pg_fetch_array($result))
 			{	$loginerror=0;
-				echo '<a href="members.php">MEMBERS</a><br /><br /><br />
-                <a href="createDrinc.php">CREATE A DRINC</a><br /><br /><br />
+				echo '<a href="members.php">MEMBERS</a><br /><br />
+                <a href="createDrinc.php">CREATE A DRINC</a><br /><br />
 				<a href="logout.php">LOGOUT</a><br /><br />
 				';
+		//checks if user is an admin	
+			$userid = $_COOKIE['ID_my_site'];
+			if ($userid == "admin") {
+						echo '<a href="drincAdmin.php">ADMIN PAGE</a>';
+						}
+
 			}
 	}
-else
+else //only shows if user is not signed in
 	{
 		echo'<a href="register.php">REGISTER</a><br /><br />
 		<a href="login.php">LOGIN</a><br /><br />';
